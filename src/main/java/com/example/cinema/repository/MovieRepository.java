@@ -1,5 +1,6 @@
 package com.example.cinema.repository;
 
+import com.example.cinema.model.Genre;
 import com.example.cinema.model.Movie;
 import com.example.cinema.model.MovieShow;
 import org.springframework.data.jpa.repository.JpaRepository;

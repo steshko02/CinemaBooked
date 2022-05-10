@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,6 +53,28 @@ public class SeatDtoServiceImpl implements SeatDtoService {
     @Override
     public List<SeatDto> getByType(SeatType type) {
         return seatService.getByType(type).stream().
+                map(m->conversionService.convert(m, SeatDto.class)).
+                collect(Collectors.toList());
+    }
+
+    @Override
+    public void saveWithRow(SeatDto seat, Long rowNum,Long hall) {
+        seatService.saveWithRow(conversionService.convert(seat, Seat.class),rowNum, hall);
+    }
+
+    @Override
+    public Long[] deleteMany(Long[] ids) {
+        return seatService.deleteMany(ids);
+    }
+
+    @Override
+    public Long[] setVIPMany(Long[] ids) {
+        return seatService.setVIPMany(ids);
+    }
+
+    @Override
+    public List<SeatDto> getByTypeAndHall(SeatType type, Long hall) {
+        return seatService.getByTypeAndHall(type,hall).stream().
                 map(m->conversionService.convert(m, SeatDto.class)).
                 collect(Collectors.toList());
     }

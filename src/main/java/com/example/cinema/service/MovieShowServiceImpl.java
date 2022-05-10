@@ -64,6 +64,11 @@ public class MovieShowServiceImpl implements MovieShowService {
         return movieRepository.findByMovie(id);
     }
 
+    @Override
+    public List<MovieShow> getAll() {
+        return movieShowRepository.findAll();
+    }
+
     private boolean checkExistMovie(Movie movie) {
         if(movie==null){
 

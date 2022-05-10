@@ -8,6 +8,8 @@ import com.example.cinema.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/hall")
 public class HallController {
@@ -40,6 +42,10 @@ public class HallController {
         return  hallDtoService.getByShowId(id);
     }
 
+    @GetMapping("/getAll")
+    public List<HallDto> getAll(){
+        return  hallDtoService.getAll();
+    }
 
 
 }

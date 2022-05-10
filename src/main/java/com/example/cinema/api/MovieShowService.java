@@ -2,6 +2,7 @@ package com.example.cinema.api;
 
 import com.example.cinema.model.MovieShow;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -16,4 +17,6 @@ public interface MovieShowService {
     MovieShow update(Long id, MovieShow convert);
 
     List<MovieShow> getByMovie(Long id);
+
+    List<MovieShow> getAll();
 }

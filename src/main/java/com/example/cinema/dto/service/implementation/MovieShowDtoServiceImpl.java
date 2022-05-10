@@ -55,4 +55,11 @@ public class MovieShowDtoServiceImpl implements MovieShowDtoService {
                 map(m->conversionService.convert(m, MovieShowDto.class)).
                 collect(Collectors.toList());
     }
+
+    @Override
+    public List<MovieShowDto> getAll() {
+        return movieShowService.getAll().stream().
+                map(m->conversionService.convert(m, MovieShowDto.class)).
+                collect(Collectors.toList());
+    }
 }

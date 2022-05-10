@@ -1,16 +1,29 @@
 .cinemaHall {
-    position: absolute;
-    top: 180px;
-    left: 180px;
+    /*position: absolute;*/
+    /*top: 40%;*/
+    /*left: 40%;*/
     text-align: center;
     display: inline-block;
     vertical-align: top;
-}
+    /*display: block;*/
 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+
+}
+.wrapper {width:100%;overflow:hidden}
+.link1 {display:block;float:left;background:url(../images/link1-right.png) no-repeat right top;color:#fff;text-decoration:none;line-height:1em;cursor:pointer}
+.link1:hover span {text-decoration:underline}
+.link1 span {display:block;float:left;padding:0 5px;background:url(../images/link1-left.png) no-repeat left top}
+.link1 span span {display:block;background:url(../images/link1-tail.gif) repeat-x left top;padding:8px 15px}
 body{
-    background-color:#22252b;
+    background-color:#2d313d;
 }
 .seat {
+    position: relative;
     height: 30px;
     width: 30px;
     margin: 6px;
@@ -24,7 +37,7 @@ body{
     display: block;
 }
 .bay {
-    background-color: red;
+    background-color: red !important;
 }
 .result {
     font-size: 10px;
@@ -35,10 +48,125 @@ body{
     margin-right: 5px;
 }
 .screen{
+    top: 80px;
     position: relative;
     width: 810px;
     background-color: #999999;
     height:40px;
-    left: 26%;
+    left: 24%;
+}
 
+.busy{
+    background-color: purple !important;
+    pointer-events: none;
+}
+.user-busy{
+    background-color: olivedrab !important;
+    pointer-events: none;
+}
+
+.admin{
+    pointer-events: none;
+}
+
+#busyTest{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: purple;
+    list-style-type: none;
+
+}
+#freeTest{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: #999999;
+    list-style-type: none;
+}
+
+#VipTest{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: yellow;
+    list-style-type: none;
+}
+
+.vip{
+    background-color: yellow;
+}
+
+#selectTest{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: red;
+    list-style-type: none;
+}
+#YourBooking{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: green;
+    list-style-type: none;
+}
+#example text{
+    position: relative;
+    right:-10px;
+}
+.textExample{
+    list-style-type: none;
+    position: relative;
+
+    top: -30px;
+    left: 50px;
+
+}
+#example ul li{
+    list-style-type: none;
+
+}
+
+.vipCr{
+    background-color: yellow;
+}
+.vip{
+    background-color: yellow;
+}
+
+
+.seat_add{
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: white !important;
+    background-image: url(images/icons8-plus-50.png);
+    background-size: 30px 30px;
+    display: inline-block;
+}
+#deletePressTest{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: white;
+    background-image: url(images/icons8-удалить-навсегда-32.png);
+    background-size: 30px 30px;
+    cursor: pointer;
+    list-style-type: none;
+}
+#vipPressTest{
+    height: 30px;
+    width: 30px;
+    margin: 6px;
+    background-color: yellow;
+    cursor: pointer;
+    list-style-type: none;
+}
+#price{
+    position: relative;
+    right:0;
+    top:0;
 }

@@ -15,4 +15,6 @@ public interface MovieShowDtoService {
     MovieShowDto update(MovieShowDto movie, Long id);
 
     List<MovieShowDto> getByMovie(Long id);
+
+    List<MovieShowDto> getAll();
 }

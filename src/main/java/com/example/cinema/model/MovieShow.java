@@ -19,7 +19,7 @@ public class MovieShow {
     private Long id;
 
 //    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm")
     private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,6 +29,21 @@ public class MovieShow {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hall_id")
     private Hall hall;
+
+    @OneToMany( mappedBy="movieShow",cascade={CascadeType.MERGE,CascadeType.PERSIST})
+    private Set<Booking> bookings = new HashSet<>();
+
+
+    @PrePersist
+    public void addPositions() {
+        bookings.forEach(movies -> movies.setMovieShow(this));
+    }
+
+    @PreRemove
+    public void removePositions() {
+        bookings.forEach(movies -> movies.setMovieShow(null));
+    }
+
 
     public MovieShow() {
     }

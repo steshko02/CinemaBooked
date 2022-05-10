@@ -19,20 +19,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private   BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
+        httpSecurity   /*я гей */
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                //Доступ только для не зарегистрированных пользователей
                 .antMatchers("/registration").not().fullyAuthenticated()
                 //Доступ только для пользователей с ролью Администратор
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/news").hasRole("USER")
-                //Доступ разрешен всем пользователей
-                .antMatchers("/", "/resources/**","/resources/static/**").permitAll()
+                .antMatchers("/admin/**","/movie","/edit-movie",
+                        "/genres","/add-movie","/shows","halls").hasRole("ADMIN")
+                .antMatchers("/movie").hasRole("USER")
+                .antMatchers( "/resources/**","/resources/static/**").permitAll()
                 .antMatchers("/public/**", "/resources/**","/resources/public/**").permitAll()
                 .antMatchers("/scss/**","/css/**", "/js/**", "/img/**", "**/favicon.ico").permitAll()
                 //Все остальные страницы требуют аутентификации
@@ -42,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 //Перенарпавление на главную страницу после успешного входа
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/main")
                 .permitAll()
                 .and()
                 .logout()

@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class GenreDtoServiceImpl implements GenreDtoService{
 
@@ -37,5 +40,15 @@ public class GenreDtoServiceImpl implements GenreDtoService{
     public GenreDto update(GenreDto genre, Long id) {
         return conversionService.convert(
                 genreService.update(id,conversionService.convert(genre, Genre.class)), GenreDto.class);
+    }
+
+    @Override
+    public List<GenreDto> getAll() {
+        return genreService.getAll().stream().map(m->conversionService.convert(m, GenreDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<GenreDto> getByMovie(Long id) {
+        return genreService.getByMovie(id).stream().map(m->conversionService.convert(m, GenreDto.class)).collect(Collectors.toList());
     }
 }

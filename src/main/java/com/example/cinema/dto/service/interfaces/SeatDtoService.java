@@ -16,4 +16,12 @@ public interface SeatDtoService {
     SeatDto update(SeatDto seat, Long id);
 
     List<SeatDto> getByType(SeatType type);
+
+    void saveWithRow(SeatDto seat, Long rowNum,Long hall);
+
+    Long[] deleteMany(Long[] ids);
+
+    Long[] setVIPMany(Long[] ids);
+
+    List<SeatDto> getByTypeAndHall(SeatType type, Long hall);
 }

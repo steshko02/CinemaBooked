@@ -20,8 +20,19 @@ public class Genre implements Serializable {
 
     private String name;
 
-    @ManyToMany(mappedBy="genres")
+    @ManyToMany(mappedBy="genres", cascade={CascadeType.MERGE, CascadeType.PERSIST})
     private Set<Movie> movies = new HashSet<>();
+
+    @PrePersist
+    public void addPositions() {
+        movies.forEach(movies -> movies.getGenres().add(this));
+    }
+
+    @PreRemove
+    public void removePositions() {
+        movies.forEach(movies -> movies.getGenres().remove(this));
+    }
+
 
     public Genre() {
     }

@@ -52,7 +52,11 @@ public class MovieServiceImpl implements MovieService {
         if (checkExistGenres(movie.getGenres()) && checkExistMovieShows(movie.getMovieShows())){
 
             movieForEdit.setName(movie.getName());
-
+            movieForEdit.setImgUrl(movie.getImgUrl());
+            movieForEdit.setTrailerUrl(movie.getTrailerUrl());
+            movieForEdit.setDuration(movie.getDuration());
+            movieForEdit.setDescription(movie.getDescription());
+            movieForEdit.setRating(movie.getRating());
             Set<Genre> genres = getExistGenres(movie);
 //            Set<MovieShow> movieShows = getExistMovieShows(movie);
 

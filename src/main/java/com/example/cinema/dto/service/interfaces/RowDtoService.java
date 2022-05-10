@@ -18,4 +18,6 @@ public interface RowDtoService {
     RowDto update(RowDto row, Long id);
 
     List<RowDto> getByHall(Long id);
+
+    RowDto getByNumber(Integer number);
 }

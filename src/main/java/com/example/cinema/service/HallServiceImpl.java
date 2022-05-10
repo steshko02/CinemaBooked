@@ -3,10 +3,13 @@ package com.example.cinema.service;
 import com.example.cinema.api.HallService;
 import com.example.cinema.exception.EntityNotFoundException;
 import com.example.cinema.model.*;
+import com.example.cinema.model.modeltypes.SeatStatus;
+import com.example.cinema.model.modeltypes.SeatType;
 import com.example.cinema.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,6 +27,12 @@ public class HallServiceImpl implements HallService {
 
     @Override
     public void save(Hall hall) {
+        Seat seat = new Seat(1L,  SeatType.DEFAULT,SeatStatus.BOOKED, 100f);
+        Row row = new Row();
+        row.setNumber(1);
+        seat.setRow(row);
+        row.getSeats().add(seat);
+        hall.getRows().add(row);
         hall.getRows().stream().forEach(r->r.setHall(hall));
         hallRepository.save(hall);
     }
@@ -63,6 +72,11 @@ public class HallServiceImpl implements HallService {
     @Override
     public Hall getByShowId(Long id) {
         return null;
+    }
+
+    @Override
+    public List<Hall> getAll() {
+        return hallRepository.findAll();
     }
 
     private Set<Row> getExistRows(Hall hall) {

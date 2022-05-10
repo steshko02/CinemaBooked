@@ -30,7 +30,7 @@ public class MovieShowController {
 
     @DeleteMapping("/delete")
     public Long delete(@RequestParam("id") Long id){
-        return  movieShowDtoService.delete(id);
+            return  movieShowDtoService.delete(id);
     }
 
     @PutMapping("/edit/{id}")
@@ -41,6 +41,11 @@ public class MovieShowController {
     @GetMapping("/getByMovie")
     public List<MovieShowDto> getByMovie(@RequestParam("id") Long id){
         return  movieShowDtoService.getByMovie(id);
+    }
+
+    @GetMapping("/getAll")
+    public List<MovieShowDto> getAll() {
+        return  movieShowDtoService.getAll();
     }
 
 }

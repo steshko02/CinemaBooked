@@ -23,6 +23,12 @@ public class RowController {
         return "saved";
     }
 
+    @GetMapping("/getByNumber")
+    public RowDto get(@RequestParam("num") Integer number){
+        return  rowDtoService.getByNumber(number);
+    }
+
+
     @GetMapping("/get")
     public RowDto get(@RequestParam("id") Long id){
         return  rowDtoService.getById(id);

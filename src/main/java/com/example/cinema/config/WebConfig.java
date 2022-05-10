@@ -16,12 +16,6 @@ import org.springframework.web.servlet.config.annotation.*;
         @Override
         public void addViewControllers(ViewControllerRegistry registry) {
             registry.addViewController("/login").setViewName("login");
-            registry.addViewController("/news").setViewName("news");
     }
-//
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
-//        super.addResourceHandlers(registry);
-//    }
+
 }

@@ -29,8 +29,25 @@ public class Seat {
     @JoinColumn(name = "row_id",nullable = true)
     private Row row;
 
-    @ManyToMany
-    Set<Booking> bookings = new HashSet<>();
+    @ManyToMany(mappedBy="seats", cascade={CascadeType.MERGE, CascadeType.PERSIST})
+    private Set<Booking> bookings = new HashSet<>();
+
+    @PrePersist
+    public void addPositions() {
+        bookings.forEach(booking -> booking.getSeats().add(this));
+    }
+
+    @PreRemove
+    public void removePositions() {
+        bookings.forEach(booking -> booking.getSeats().remove(this));
+    }
+
+    public Seat(Long number, SeatType seatType, SeatStatus seatStatus, Float price) {
+        this.number = number;
+        this.seatType = seatType;
+        this.seatStatus = seatStatus;
+        this.price = price;
+    }
 
     private Float price;
 

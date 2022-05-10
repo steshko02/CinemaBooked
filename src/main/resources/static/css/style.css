@@ -1,6 +1,8 @@
 /* TAGS */
 * {margin:0;padding:0}
-html, body {min-width:940px}
+html, body {min-width:940px;
+    overflow-x:hidden;  /*для горизонтального*/
+}
 body {background:#000;font-family:Arial,Helvetica,sans-serif;font-size:100%;line-height:1em;color:#858585}
 object {vertical-align:top;outline:none}
 input, textarea, select {font-family:Arial,Helvetica,sans-serif;font-size:1em;vertical-align:middle;font-weight:normal}
@@ -11,7 +13,11 @@ ul, ol {list-style:none}
 /* GLOBAL */
 #main {width:940px;margin:0 auto;font-size:0.875em}
 #header {height:171px;margin-bottom:-8px}
-#footer {background:url(../images/footer-tail.gif) repeat-x left top #bfbfbf;color:#1d1d1d;font-size:.86em;line-height:1.667em;text-align:center}
+#footer {
+    background:url(../images/footer-tail.gif) repeat-x left top #bfbfbf;color:#1d1d1d;
+    font-size:.86em;
+    line-height:1.667em;text-align:center;
+}
 /* ALIGMENT */
 .fleft {float:left}
 .fright {float:right}
@@ -29,17 +35,17 @@ ul, ol {list-style:none}
 #contacts-form {clear:right;width:842px;overflow:hidden}
 #contacts-form fieldset {border:none;float:left}
 #contacts-form .field {clear:both}
-#contacts-form label {float:left;width:112px !important;width:109px;line-height:18px;padding-bottom:8px;color:#fff}
+#contacts-form label {float:left;width:140px !important;width:109px;line-height:18px;padding-bottom:8px;color:#fff}
 #contacts-form input {width:293px;padding:1px 0 1px 3px;background:#000;border:1px solid #3a3a3a;color:#fff}
 #contacts-form textarea {width:674px;height:174px;padding:2px 28px 1px 28px;background:url(../images/textarea-bg.gif) no-repeat left top;border:0;color:#fff;margin-bottom:15px;overflow:auto}
 #contacts-form .link2 {float:right}
 /* LISTS */
 .movies {width:100%}
-.movies li {float:left;width:286px;margin-right:15px;height:480px;}
+.movies li {float:left;width:280px;margin-right:15px;height:480px;margin-bottom: 40px;}
 .movies li.last {margin-right:0}
 .movies li.clear {float:none;width:auto;margin:0;font-size:0;line-height:0}
-.movies li img {margin-left:-30px;position:relative}
-.movies li p {margin:5px 0 15px 0;padding-right:40px}
+.movies li img {margin-left:0px;position:relative}
+.movies li p {margin:5px 0 15px 10px;padding-right:40px;width:260px;}
 .movies li p span {color:#fff}
 .list {margin-top:-30px}
 .list li {width:100%;overflow:hidden;vertical-align:top;line-height:1.714em;padding-top:40px}
@@ -114,7 +120,6 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 #page1 #content .box {margin:0}
 #page1 #header .row-2 ul li a {height:59px}
 #page1 #header .row-2 ul li.last a:hover {position:relative;z-index:2}
-
 .movie{
     padding: 30px 0 39px 10px;
 }
@@ -124,6 +129,11 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 
 .list li p{
     position: relative;
+}
+
+#pDad{
+    position: relative;
+
 }
 
 .list li {
@@ -160,10 +170,9 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
     /*float: left;*/
 }
 .short-info{
-    position: absolute;
-    right: 480px;
-    bottom: 220px;
-    /*float: right;*/
+    position: relative;
+    right: -494px;
+    bottom: 275px;
 }
 .short-info li{
     padding-bottom: 25px;
@@ -183,9 +192,10 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
     clear:both;
 }
 
+
 /**  STYLE 3 */
 #style-3::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
     background-color: #F5F5F5;
 }
 
@@ -199,14 +209,256 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 }
 
 .scrollbar {
-    overflow-y: scroll;
+    overflow: auto;
 }
+
 
 .button-movie {
     position: relative;
 }
 .button-movie-infoot{
-    position:absolute;
+    position:relative;
     bottom:0;
-    right:0;
+    right:-10px;
+}
+
+.admin-function{
+    position: relative;
+    left: 45px;
+    padding-bottom: 100px;
+
+}
+.admin-function li{
+    margin-top:10px;
+
+}
+
+.time{
+    width:142.3px !important;
+}
+#select2{
+    background-color: gray;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:1em;vertical-align:middle;
+    font-weight:normal;
+    /*color: white;*/
+    width: 147px;
+    height: 200px;
+}
+
+#select1{
+    background-color: gray;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:1em;vertical-align:middle;
+    font-weight:normal;
+    /*color: white;*/
+    width: 147px;
+    height: 200px;
+}
+.bloc {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    border: solid grey 1px;
+}
+
+.bloc select {
+    padding: 10px;
+    margin: -5px -20px -5px -5px;
+}
+#genres{
+    position: relative;
+}
+
+#genres  li{
+    display: block;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 240px;
+    list-style: none;
+    /*margin: 2px;*/
+    border-raius: 5px;
+    /*padding: 5px;*/
+    /*height:25px;*/
+
+}
+
+#genres li input{
+    width: 240px;
+    font-size:17px;
+    padding:0;
+    border:none;
+    background-color: #bfbfbf;
+}
+
+#genres .deleteMe{
+    float: right;
+}
+.deleteGenre{
+    color:black;
+    position: relative;
+    bottom:18px;
+    left: -10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.editGenre{
+    color:black;
+    position: relative;
+    bottom:18px;
+    left: -10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.deleteGenre:hover{
+    color:red;
+}
+.editGenre:hover{
+    color:purple;
+}
+
+.ul-container{
+    width: 280px;
+    height:400px;
+    margin-bottom:40px;
+}
+
+.add{
+    position: relative;
+    left:100px;
+    bottom:48px;
+}
+
+.addMovie{
+    position: relative;
+    left:180px;
+    bottom:48px;
+}
+
+table {
+    /*position: relative;*/
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+    width: 450px;
+    /*margin-left: 0;*/
+}
+th, td:first-child {
+    background: #999999;
+    color: white;
+    padding: 10px 20px;
+}
+#main-table th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+    padding: 10px;
+}
+#main-table td {
+    background: #3a3a3a;
+}
+#main-table th:first-child, td:first-child {
+    text-align: left;
+}
+.deleteT:hover{
+    color:red;
+    cursor:pointer;
+}
+.editT:hover{
+    color:green;
+    cursor:pointer;
+}
+
+
+.editT:hover{
+    color:green;
+    cursor:pointer;
+}
+
+#main-table th:first-child, td:first-child {
+    text-align: left;
+}
+
+/*.addShow{*/
+/*    position: relative;*/
+/*    left:495px;*/
+/*    bottom:50px;*/
+/*}*/
+#resetEdit{
+    position: relative;
+    left:0px;
+    bottom:0px;
+    left:20px;
+
+    /*margin-left: 100px;*/
+    display:none;
+}
+
+#saveEdit{
+    position: relative;
+    bottom:0px;
+    display:none;
+
+}
+#cancel{
+    position: relative;
+    bottom:0px;
+    left:10px;
+    /*margin-left: 200px;*/
+    display:none;
+
+}
+
+.form-group{
+    float: right;
+    position: relative;
+    left: -100px;
+    top: 90px;
+}
+
+.special-footer{
+    position: absolute;
+    left: 0;
+    width:940px;
+    bottom: -43px;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+.editMovieButton{
+    position: relative;
+    bottom: 65px;
+    left:96px;
+    width: 90px;
+}
+.deleteMovieButton{
+    position: relative;
+    bottom: 32px;
+    left:185px;
+    width: 90px;
+}
+.editSeats{
+    position: relative;
+    top: -18px;
+    left: -5px;
+}
+.editSeats:hover{
+   color:red;
+}
+#pF{
+    position: relative;
+    bottom: 100px;
+    padding-top: 0px;
+}
+
+.prokrutka {
+    height:250px; /* высота нашего блока */
+    background: #fff; /* цвет фона, белый */
+    border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+    overflow-x: scroll; /* прокрутка по горизонтали */
+    overflow-y: scroll; /* прокрутка по вертикали */
 }

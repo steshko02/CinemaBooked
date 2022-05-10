@@ -7,6 +7,8 @@ import com.example.cinema.model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/genre")
 public class GenreController {
@@ -28,6 +30,16 @@ public class GenreController {
     @GetMapping("/get")
     public GenreDto get(@RequestParam("id") Long id){
         return  genreDtoService.getById(id);
+    }
+
+    @GetMapping("/getByMovie")
+    public List<GenreDto> getByMovie(@RequestParam("id") Long id){
+        return  genreDtoService.getByMovie(id);
+    }
+
+    @GetMapping("/getAll")
+    public List<GenreDto> getAll(){
+        return  genreDtoService.getAll();
     }
 
     @DeleteMapping("/delete")

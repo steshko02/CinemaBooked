@@ -22,10 +22,11 @@ public class DtoToSeat implements Converter<SeatDto, Seat> {
         Seat result = new Seat();
 
         result.setId(source.getId());
+        result.setPrice(source.getPrice());
         result.setNumber(source.getNumber());
         result.setSeatStatus(source.getSeatStatus());
         result.setSeatType(source.getSeatType());
-        if(source.getId()!=null)
+        if(source.getRow()!=null)
           result.setRow(rowService.getById(source.getRow()));
         else   result.setRow(null);
 //            throw new EntityNotFoundException(Row.class, "id", source.getRow().toString());

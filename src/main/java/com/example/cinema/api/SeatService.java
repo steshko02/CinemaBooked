@@ -4,6 +4,7 @@ import com.example.cinema.dto.model.SeatDto;
 import com.example.cinema.model.Seat;
 import com.example.cinema.model.modeltypes.SeatType;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface SeatService {
@@ -16,4 +17,12 @@ public interface SeatService {
     Seat update(Long id, Seat seat);
 
     List<Seat> getByType(SeatType type);
+
+    void saveWithRow(Seat seat, Long rowNum, Long hall);
+
+    Long[] deleteMany(Long[] ids);
+
+    Long[] setVIPMany(Long[] ids);
+
+    List<Seat> getByTypeAndHall(SeatType type,Long hall);
 }

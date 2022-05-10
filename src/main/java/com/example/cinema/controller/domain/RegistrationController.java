@@ -18,22 +18,24 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-
-        return "registration";
+        return "regist";
     }
 
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("userForm")  User userForm, Model model) {
 
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
-            model.addAttribute("passwordError", "Пароли не совпадают");
-            return "registration";
+            model.addAttribute("passIsOK", false);
+            return "regist";
+        }
+        if(!userService.checkEmail(userForm.getEmail())){
+            model.addAttribute("mailIsOK", false);
+            return "regist";
         }
         if (!userService.saveUser(userForm)){
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-            return "registration";
+            model.addAttribute("userIsOK", false);
+            return "regist";
         }
-
-        return "redirect:/";
+        return "redirect:/login";
     }
 }

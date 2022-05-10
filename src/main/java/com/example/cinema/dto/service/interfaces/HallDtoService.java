@@ -2,6 +2,8 @@ package com.example.cinema.dto.service.interfaces;
 
 import com.example.cinema.dto.model.HallDto;
 
+import java.util.List;
+
 public interface HallDtoService {
     void save(HallDto hallDto);
 
@@ -12,4 +14,6 @@ public interface HallDtoService {
     HallDto update(HallDto hallDto, Long id);
 
     HallDto getByShowId(Long id);
+
+    List<HallDto> getAll();
 }

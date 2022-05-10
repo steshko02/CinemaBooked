@@ -1,5 +1,6 @@
 package com.example.cinema.api;
 
+import com.example.cinema.dto.model.RowDto;
 import com.example.cinema.model.Row;
 
 import java.util.Collection;
@@ -15,4 +16,6 @@ public interface RowService {
     void save(Row convert);
 
     List<Row> getByHall(Long id);
+
+    Row getByNumber(Integer number);
 }

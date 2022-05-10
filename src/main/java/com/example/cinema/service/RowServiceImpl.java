@@ -1,6 +1,7 @@
 package com.example.cinema.service;
 
 import com.example.cinema.api.RowService;
+import com.example.cinema.dto.model.RowDto;
 import com.example.cinema.exception.EntityNotFoundException;
 import com.example.cinema.model.*;
 import com.example.cinema.repository.HallRepository;
@@ -47,6 +48,11 @@ public class RowServiceImpl implements RowService {
     @Override
     public List<Row> getByHall(Long id) {
         return rowRepository.getByHall(id);
+    }
+
+    @Override
+    public Row getByNumber(Integer number) {
+        return rowRepository.findByNumber(number).get(0);
     }
 
     @Override

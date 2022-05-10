@@ -9,6 +9,7 @@ import com.example.cinema.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,17 @@ public class GenreServiceImpl implements GenreService {
             return genreForEdit;
         }
         throw new EntityNotFoundException(Genre.class, "id", id.toString());
+    }
+
+    @Override
+    public List<Genre> getAll() {
+        return genreRepository.findAll();
+    }
+
+    @Override
+    public List<Genre> getByMovie(Long id) {
+//        return genreRepository.getByMovie(id);
+        return null;
     }
 
     private boolean checkExistMovies(Set<Movie> movies){

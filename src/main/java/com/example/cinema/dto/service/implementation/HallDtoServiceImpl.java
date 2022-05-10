@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class HallDtoServiceImpl implements HallDtoService {
 
@@ -47,5 +50,12 @@ public class HallDtoServiceImpl implements HallDtoService {
     @Override
     public HallDto getByShowId(Long id) {
         return conversionService.convert(hallService.getByShowId(id), HallDto.class);
+    }
+
+    @Override
+    public List<HallDto> getAll() {
+         return hallService.getAll().stream().
+                map(m->conversionService.convert(m, HallDto.class)).
+                collect(Collectors.toList());
     }
 }

@@ -21,15 +21,15 @@ public class Booking {
     @OneToOne
     private Hall hall;
 
-    @ManyToMany
+    @ManyToMany( cascade=CascadeType.ALL)
     @JoinTable(name="booking_seats", joinColumns=@JoinColumn(name="booking_id"),
             inverseJoinColumns=@JoinColumn(name="seat_id"))
     private Set<Seat> seats = new HashSet<>();
 
-
     private Float price;
 
-    @OneToOne
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="show_id")
     private MovieShow movieShow;
 
     @ManyToOne

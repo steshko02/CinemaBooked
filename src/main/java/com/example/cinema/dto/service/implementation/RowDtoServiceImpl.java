@@ -50,4 +50,9 @@ public class RowDtoServiceImpl implements RowDtoService {
     public List<RowDto> getByHall(Long id) {
         return rowService.getByHall(id).stream().map(m->conversionService.convert(m,RowDto.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public RowDto getByNumber(Integer number) {
+        return conversionService.convert(rowService.getByNumber(number),RowDto.class);
+    }
 }

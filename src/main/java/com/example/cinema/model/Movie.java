@@ -42,6 +42,16 @@ public class Movie implements Serializable {
     @OneToMany(fetch = FetchType.LAZY,mappedBy="movie", cascade = CascadeType.ALL)
     private Set<MovieShow> movieShows = new HashSet<>();
 
+    @PrePersist
+    public void addPositions() {
+        movieShows.forEach(movies -> movies.setMovie(this));
+    }
+
+    @PreRemove
+    public void removePositions() {
+        movieShows.forEach(movies -> movies.setMovie(null));
+    }
+
     public Movie() {
     }
 }
